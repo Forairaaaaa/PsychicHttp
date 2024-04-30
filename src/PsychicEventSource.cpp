@@ -96,7 +96,7 @@ void PsychicEventSource::openCallback(PsychicClient *client) {
   PsychicEventSourceClient *buddy = getClient(client);
   if (buddy == NULL)
   {
-    TRACE();
+    // TRACE();
     return;
   }
 
@@ -108,7 +108,7 @@ void PsychicEventSource::closeCallback(PsychicClient *client) {
   PsychicEventSourceClient *buddy = getClient(client);
   if (buddy == NULL)
   {
-    TRACE();
+    // TRACE();
     return;
   }
 

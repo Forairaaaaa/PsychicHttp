@@ -36,7 +36,7 @@ esp_err_t PsychicJsonResponse::send()
   size_t buffer_size;
   char *buffer;
 
-  DUMP(length);
+  // DUMP(length);
 
   //how big of a buffer do we want?
   if (length < JSON_BUFFER_SIZE)
@@ -44,7 +44,7 @@ esp_err_t PsychicJsonResponse::send()
   else
     buffer_size = JSON_BUFFER_SIZE;
 
-  DUMP(buffer_size);
+  // DUMP(buffer_size);
 
   buffer = (char *)malloc(buffer_size);
   if (buffer == NULL) {
@@ -55,7 +55,7 @@ esp_err_t PsychicJsonResponse::send()
   //send it in one shot or no?
   if (length < JSON_BUFFER_SIZE)
   {
-    TRACE();
+    // TRACE();
 
     serializeJson(_root, buffer, buffer_size);
 
@@ -125,7 +125,7 @@ esp_err_t PsychicJsonHandler::handleRequest(PsychicRequest *request)
       JsonVariant json = jsonBuffer.as<JsonVariant>();
     #else
       JsonDocument jsonBuffer;
-      DeserializationError error = deserializeJson(jsonBuffer, request->body());
+      DeserializationError error = deserializeJson(jsonBuffer, request->body().c_str());
       if (error)
         return request->reply(400);
 

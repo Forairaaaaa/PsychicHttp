@@ -33,13 +33,15 @@
   #include <ArduinoTrace.h>
 #endif
 
+#include <Arduino.h>
+
 #include <esp_http_server.h>
 #include <map>
 #include <list>
 #include <libb64/cencode.h>
 #include "esp_random.h"
 #include "MD5Builder.h"
-#include <UrlEncode.h>
+#include "UrlEncode.h"
 #include "FS.h"
 #include <ArduinoJson.h>
 
